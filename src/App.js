@@ -25,7 +25,7 @@ function App() {
     console.log('ESPERA EL ASYNC?');
   }, []);
 
-  return <div>{!loading ? <Map evenData={eventData} /> : <Loader />}</div>;
+  return <div>{!loading ? <Map eventData={eventData} /> : <Loader />}</div>;
 }
 
 export default App;
