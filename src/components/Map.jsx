@@ -6,6 +6,8 @@ import { useState } from 'react';
 const Map = ({ eventData, center, zoom }) => {
   const [locationInfo, setLocationInfo] = useState(null);
 
+  console.log('center', center);
+
   const markers = eventData.map((ev) => {
     if (ev.categories[0].id === 'wildfires') {
       return (
