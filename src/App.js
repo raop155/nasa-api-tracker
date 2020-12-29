@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Header from './components/Header';
 import Map from './components/Map';
 import Loader from './components/Loader';
 
@@ -25,7 +26,12 @@ function App() {
     console.log('ESPERA EL ASYNC?');
   }, []);
 
-  return <div>{!loading ? <Map eventData={eventData} /> : <Loader />}</div>;
+  return (
+    <div>
+      <Header />
+      {!loading ? <Map eventData={eventData} /> : <Loader />}
+    </div>
+  );
 }
 
 export default App;
