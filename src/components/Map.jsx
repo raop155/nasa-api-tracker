@@ -6,7 +6,7 @@ import { useState } from 'react';
 const Map = ({ eventData, center, zoom }) => {
   const [locationInfo, setLocationInfo] = useState(null);
 
-  // console.log('center', center);
+  // console.log('locationInfo', locationInfo);
 
   const markers = eventData.map((ev) => {
     const type = ev.categories[0].id;
@@ -17,7 +17,9 @@ const Map = ({ eventData, center, zoom }) => {
             key={ev.id + index}
             lat={point.coordinates[1]}
             lng={point.coordinates[0]}
-            onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}
+            onClick={() =>
+              setLocationInfo({ id: ev.id, title: ev.title, category: ev.categories[0].title })
+            }
             category={ev.categories[0].id}
           />
         );
