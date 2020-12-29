@@ -50,7 +50,7 @@ body {
 
 .snow-icon {
   font-size: 2rem;
-  color: blue;
+  color: skyblue;
 }
 
 .flood-icon {
@@ -81,7 +81,7 @@ body {
   width: 400px;
   min-height: 200px;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   font-size: 1.1rem;
   color: #fff;
@@ -94,4 +94,30 @@ body {
 
 .location-info li {
   padding: 0.5em 0;
+}
+
+.legend {
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1em;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.legend ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.legend li > * {
+  margin-right: 0.5em;
 }
