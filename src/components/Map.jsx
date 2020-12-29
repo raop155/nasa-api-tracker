@@ -7,11 +7,12 @@ const Map = ({ eventData, center, zoom }) => {
   const [locationInfo, setLocationInfo] = useState(null);
 
   const markers = eventData.map((ev) => {
-    if (ev.categories[0].id === 8) {
+    if (ev.categories[0].id === 'wildfires') {
       return (
         <LocationMarker
-          lat={ev.geometries[0].coordinates[1]}
-          lng={ev.geometries[0].coordinates[0]}
+          key={ev.id}
+          lat={ev.geometry[0].coordinates[1]}
+          lng={ev.geometry[0].coordinates[0]}
           onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}
         />
       );
@@ -22,7 +23,7 @@ const Map = ({ eventData, center, zoom }) => {
   return (
     <div className='map'>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyBuOzozMaZ5F6fbpphgW538TCg4IP9IZOE' }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
         defaultCenter={center}
         defaultZoom={zoom}
       >
