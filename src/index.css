@@ -36,9 +36,24 @@ body {
   height: 100vh;
 }
 
-.location-icon {
+.fire-icon {
   font-size: 2rem;
   color: red;
+}
+
+.storm-icon {
+  font-size: 2rem;
+  color: yellow;
+}
+
+.snow-icon {
+  font-size: 2rem;
+  color: blue;
+}
+
+.flood-icon {
+  font-size: 2rem;
+  color: blue;
 }
 
 .loader {

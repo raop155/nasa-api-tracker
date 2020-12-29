@@ -6,18 +6,22 @@ import { useState } from 'react';
 const Map = ({ eventData, center, zoom }) => {
   const [locationInfo, setLocationInfo] = useState(null);
 
-  console.log('center', center);
+  // console.log('center', center);
 
   const markers = eventData.map((ev) => {
-    if (ev.categories[0].id === 'wildfires') {
-      return (
-        <LocationMarker
-          key={ev.id}
-          lat={ev.geometry[0].coordinates[1]}
-          lng={ev.geometry[0].coordinates[0]}
-          onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}
-        />
-      );
+    const type = ev.categories[0].id;
+    if (type === 'wildfires' || type === 'severeStorms' || type === 'snow' || type === 'floods') {
+      return ev.geometry.map((point, index) => {
+        return (
+          <LocationMarker
+            key={ev.id + index}
+            lat={point.coordinates[1]}
+            lng={point.coordinates[0]}
+            onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}
+            category={ev.categories[0].id}
+          />
+        );
+      });
     }
     return null;
   });
